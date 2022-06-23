@@ -31,6 +31,11 @@ app.get("/lists",(req,res)=>{
     })
 })
 
+app.get("/details",(req,res)=>{
+
+    
+})
+
 app.post("/newpost",(req,res)=>{
     db.collection('counter').findOne({name:"number of posts"}, (err,result)=>{
         var totalNumber = result.totalPost;
