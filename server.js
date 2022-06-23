@@ -47,3 +47,12 @@ app.post("/newpost",(req,res)=>{
     //     res.render("lists.ejs", {posts:result});
     // });
 })
+
+app.delete("/delete",(req,res)=>{
+    req.body._id = parseInt(req.body._id);
+    db.collection('post').deleteOne(req.body,(err,result)=>{
+        console.log('delete complete');
+        res.status(200).send({message:'delete success'});
+    });
+    
+})
