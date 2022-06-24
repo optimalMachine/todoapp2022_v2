@@ -31,9 +31,10 @@ app.get("/lists",(req,res)=>{
     })
 })
 
-app.get("/details",(req,res)=>{
-
-    
+app.get("/detail/:id",(req,res)=>{
+    db.collection('post').findOne({_id:parseInt(req.params.id)},(err,result)=>{
+        res.render("detail.ejs",{data:result});
+    })
 })
 
 app.post("/newpost",(req,res)=>{
